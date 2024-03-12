@@ -14,8 +14,8 @@ export class InventoryPage extends BasePage {
     this.url = "https://www.saucedemo.com/inventory.html";
   }
 
-  async getCardList() {
-    await this.getListOfelements(this.listOfCard);
+  getCardList() {
+    return this.getListOfelements(this.listOfCard);
   }
 
   async openCard(i: number) {

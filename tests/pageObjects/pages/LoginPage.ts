@@ -31,7 +31,7 @@ export class LoginPage extends BasePage {
     });
   }
 
-  async loginInSite() {
+  async logInInSite() {
     await test.step("Вход на сайт", async () => {
       await this.fillElement(this.loginField, "standard_user");
       await this.fillElement(this.passwordField, "secret_sauce");
