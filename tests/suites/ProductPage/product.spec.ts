@@ -11,11 +11,7 @@ test("add product", async ({ inventoryPage, loginPage, productPage, page }) => {
   await loginPage.pause();
 });
 
-test.only("back to product", async ({
-  inventoryPage,
-  loginPage,
-  productPage,
-}) => {
+test("back to product", async ({ inventoryPage, loginPage, productPage }) => {
   await loginPage.open();
   await loginPage.logInInSite();
   await inventoryPage.openCard(0);

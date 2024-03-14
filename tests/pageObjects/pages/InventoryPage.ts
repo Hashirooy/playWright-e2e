@@ -9,6 +9,7 @@ export class InventoryPage extends BasePage {
   readonly resetAppButton = this.page.locator("[id='reset_sidebar_link']");
   readonly listOfCard = this.page.locator(".inventory_item");
   readonly cardTitle = this.page.locator(".inventory_item_name");
+  readonly goToCart = this.page.locator("[id='shopping_cart_container']");
   constructor(page: Page) {
     super(page);
     this.url = "https://www.saucedemo.com/inventory.html";
@@ -21,6 +22,11 @@ export class InventoryPage extends BasePage {
   async openCard(i: number) {
     test.step("Клик по title карточки товара", async () => {
       await this.cardTitle.nth(i).click();
+    });
+  }
+  async ClickGoToCart() {
+    test.step("Нажать на кнопку переход в корзину", async () => {
+      await this.goToCart.click();
     });
   }
 }
