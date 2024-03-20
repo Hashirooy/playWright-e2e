@@ -1,7 +1,7 @@
 import { log } from "console";
 import { test } from "./cart.fixture";
 
-test.only("Нахад к покупкам", async ({
+test("Нахад к покупкам", async ({
   loginPage,
   inventoryPage,
   cartPage,

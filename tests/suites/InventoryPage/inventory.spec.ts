@@ -26,10 +26,9 @@ test("get list of item", async ({ inventoryPage, loginPage, page }) => {
   await loginPage.pause();
 });
 
-test("open item", async ({ inventoryPage, loginPage, page }) => {
+test.only("open item", async ({ inventoryPage, loginPage, page }) => {
   await loginPage.open();
   await loginPage.logInInSite();
-  await inventoryPage.getCardList();
-  await inventoryPage.openCard(1);
-  await loginPage.pause();
+  await inventoryPage.checkCardTitle("Sauce Labs Backpack");
+  await inventoryPage.page.locator("#item_4_title_link").click();
 });

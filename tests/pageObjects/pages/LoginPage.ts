@@ -5,7 +5,7 @@ import { allure } from "allure-playwright";
 export class LoginPage extends BasePage {
   readonly loginField = this.page.locator("[id=user-name]");
   readonly passwordField = this.page.locator("[id=password]");
-  readonly loginButton = this.page.locator("[id=login-button]");
+  readonly loginButton = this.page.locator("[data-test='login-button']");
   readonly errorMessage = this.page.locator('[data-test="error"]');
 
   constructor(page: Page) {

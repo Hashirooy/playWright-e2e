@@ -1,5 +1,6 @@
 import { expect } from "@playwright/test";
 import { test } from "./login.fixture";
+import { createTask } from "../../helpers/createTask";
 
 test("logIn without password", async ({ loginPage }) => {
   await loginPage.open();
@@ -36,4 +37,8 @@ test("Correct login on site", async ({ loginPage }) => {
   await loginPage.typeLoginField("standard_user");
   await loginPage.typePasswordField("secret_sauce");
   await loginPage.clickLoginButton();
+});
+
+test("Api test", async ({}) => {
+  await createTask();
 });

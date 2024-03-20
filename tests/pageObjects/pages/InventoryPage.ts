@@ -8,7 +8,7 @@ export class InventoryPage extends BasePage {
   readonly logoutButton = this.page.locator("[id='logout_sidebar_link']");
   readonly resetAppButton = this.page.locator("[id='reset_sidebar_link']");
   readonly listOfCard = this.page.locator(".inventory_item");
-  readonly cardTitle = this.page.locator(".inventory_item_name");
+  readonly cardTitle = this.page.locator("#item_4_title_link");
   readonly goToCart = this.page.locator("[id='shopping_cart_container']");
   constructor(page: Page) {
     super(page);
@@ -21,12 +21,18 @@ export class InventoryPage extends BasePage {
 
   async openCard(i: number) {
     test.step("Клик по title карточки товара", async () => {
-      await this.cardTitle.nth(i).click();
+      await this.cardTitle.click();
     });
   }
   async ClickGoToCart() {
     test.step("Нажать на кнопку переход в корзину", async () => {
       await this.goToCart.click();
+    });
+  }
+
+  async checkCardTitle(expectedText: string): Promise<void> {
+    await test.step("Проверяем заголовок карточки", async () => {
+      await expect(await this.cardTitle.innerText()).toContain(expectedText);
     });
   }
 }
